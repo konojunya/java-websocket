@@ -1,12 +1,19 @@
 $(function() {
-  var url = "ws://localhost:8080/websocket/echo";
-  var ws = new WebSocket(url);
 
-  ws.onmessage = function(receive) {
-    $("#message").text(receive.data);
-  }
+  $("#send").attr("disabled", true);
+  var ws = new WebSocket("ws://localhost:8080/websocket/broadcast");
 
   ws.onopen = function() {
-    ws.send("Hello WebSocket!");
+    $("#send").attr("disabled", false)
   }
+
+  ws.onmessage = function(receive) {
+    $("#receive").text(receive.data);
+  }
+
+  $("#send").on("click", function() {
+    var text = $("#message").val()
+    ws.send(text)
+  })
+
 })
