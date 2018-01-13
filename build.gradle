@@ -1,0 +1,11 @@
+apply plugin: "war"
+
+war.baseName = "websocket"
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  providedCompile 'javax.websocket:javax.websocket-api:1.1'  
+}
