@@ -1,9 +1,9 @@
 package sample.websocket;
 
 import javax.websocket.OnMessage;
-import javax.websocket.server.ServerEndPoint;
+import javax.websocket.server.ServerEndpoint;
 
-@ServerEndPoint("/echo")
+@ServerEndpoint("/echo")
 public class SampleWebSocket {
 
   @OnMessage
